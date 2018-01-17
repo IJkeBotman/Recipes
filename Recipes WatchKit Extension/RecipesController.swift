@@ -33,6 +33,21 @@ import WatchKit
 
 class RecipesController: WKInterfaceController {
 
-  
+    @IBOutlet var table: WKInterfaceTable!
+    
+    let recipeStore = RecipeStore()
+    
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
+        
+        table.setNumberOfRows(recipeStore.recipes.count, withRowType: "RecipeRowType")
+        
+        for (index, recipe) in recipeStore.recipes.enumerated() {
+            let controller = table.rowController(at: index) as! RecipeRowController
+            controller.titleLabel.setText(recipe.name)
+            controller.ingredientsLabel.setText("\(recipe.ingredients.count) ingredients")
+        }
+    }
+    
 
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0ABD4FF6200F8901000CD1FF /* RecipeRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD4FF5200F8901000CD1FF /* RecipeRowController.swift */; };
 		29703CE61B77358600785700 /* RecipeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29703CE11B77358600785700 /* RecipeDetailController.swift */; };
 		29703CE71B77358600785700 /* RecipeDirectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29703CE21B77358600785700 /* RecipeDirectionsController.swift */; };
 		29703CE81B77358600785700 /* RecipeIngredientsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29703CE31B77358600785700 /* RecipeIngredientsController.swift */; };
@@ -95,6 +96,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0ABD4FF5200F8901000CD1FF /* RecipeRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRowController.swift; sourceTree = "<group>"; };
 		29703CE11B77358600785700 /* RecipeDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailController.swift; sourceTree = "<group>"; };
 		29703CE21B77358600785700 /* RecipeDirectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDirectionsController.swift; sourceTree = "<group>"; };
 		29703CE31B77358600785700 /* RecipeIngredientsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeIngredientsController.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				298B2AC01B40AA2200FD605E /* ExtensionDelegate.swift */,
 				298B2AC41B40AA2200FD605E /* Info.plist */,
 				298B2B851B40AD3000FD605E /* RecipesController.swift */,
+				0ABD4FF5200F8901000CD1FF /* RecipeRowController.swift */,
 			);
 			path = "Recipes WatchKit Extension";
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				298B2B2A1B40AAC000FD605E /* RecipeStore.swift in Sources */,
 				298B2B251B40AAC000FD605E /* Ingredient.swift in Sources */,
 				298B2B271B40AAC000FD605E /* Recipe.swift in Sources */,
+				0ABD4FF6200F8901000CD1FF /* RecipeRowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
