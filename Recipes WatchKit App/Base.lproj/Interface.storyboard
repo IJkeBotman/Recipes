@@ -29,6 +29,22 @@
                                     <connections>
                                         <outlet property="ingredientsLabel" destination="gl6-Y3-aiU" id="Zox-Sg-CnM"/>
                                         <outlet property="titleLabel" destination="i6W-Pr-oZu" id="CoO-Y2-86X"/>
+                                        <segue destination="arb-Jr-hqN" kind="push" id="F1G-UC-L9Y"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="HeaderRowType" selectable="NO" id="PAw-hM-n9u" customClass="HeaderRowController" customModule="Recipes_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="Fao-fT-T0x">
+                                        <items>
+                                            <imageView alignment="left" verticalAlignment="center" image="veggies" id="eGS-Ko-V59"/>
+                                            <label alignment="left" verticalAlignment="center" text="Label" id="UG0-4t-QGW">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
+                                        </items>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="image" destination="eGS-Ko-V59" id="k6Z-da-6ZE"/>
+                                        <outlet property="label" destination="UG0-4t-QGW" id="07i-Qq-Sd4"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -40,6 +56,46 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="285" y="302"/>
+        </scene>
+        <!--Recipe Detail Controller-->
+        <scene sceneID="Gwt-hJ-uyJ">
+            <objects>
+                <controller id="arb-Jr-hqN" customClass="RecipeDetailController" customModule="Recipes_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <table alignment="left" id="hZC-NE-rlz">
+                            <items>
+                                <tableRow identifier="RecipeHeader" selectable="NO" id="5Ce-dE-FrM" customClass="RecipeHeaderController" customModule="Recipes_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="yQN-Wm-Nlx">
+                                        <items>
+                                            <label alignment="left" text="Label" numberOfLines="0" id="o6W-9u-smt">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
+                                        </items>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="titleLabel" destination="o6W-9u-smt" id="TNi-G4-STK"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="RecipeStep" selectable="NO" id="g2w-cu-9ub" customClass="RecipeStepController" customModule="Recipes_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="TNY-Ju-ztp">
+                                        <items>
+                                            <label alignment="left" text="Label" numberOfLines="0" id="H3q-0m-dhu"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="stepLabel" destination="H3q-0m-dhu" id="Nak-Zk-Yvu"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="hZC-NE-rlz" id="h7A-No-7we"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="541" y="301"/>
         </scene>
     </scenes>
 </document>

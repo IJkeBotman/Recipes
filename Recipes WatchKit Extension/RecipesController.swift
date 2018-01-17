@@ -36,16 +36,51 @@ class RecipesController: WKInterfaceController {
     @IBOutlet var table: WKInterfaceTable!
     
     let recipeStore = RecipeStore()
+    var map = [String: [Recipe]]()
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        table.setNumberOfRows(recipeStore.recipes.count, withRowType: "RecipeRowType")
+        for recipe in recipeStore.recipes {
+            var arr = map[recipe.type] ?? [Recipe]()
+            arr.append(recipe)
+            map[recipe.type] = arr
+        }
         
-        for (index, recipe) in recipeStore.recipes.enumerated() {
-            let controller = table.rowController(at: index) as! RecipeRowController
-            controller.titleLabel.setText(recipe.name)
-            controller.ingredientsLabel.setText("\(recipe.ingredients.count) ingredients")
+        for (type, recipes) in map {
+            add(withType: type, recipes: recipes)
+        }
+    }
+    
+    override func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> Any? {
+        var originalIndex = rowIndex
+        for (_, recipes) in map {
+            originalIndex -= 1
+            if originalIndex < recipes.count {
+                return recipes[originalIndex]
+            }
+            originalIndex -= recipes.count
+        }
+        return nil
+    }
+    
+    func add(withType type: String, recipes: [Recipe]) {
+        let rows = table.numberOfRows
+        table.insertRows(at: NSIndexSet(index: rows) as IndexSet, withRowType: "HeaderRowType")
+        let itemRows = NSIndexSet(indexesIn: NSRange(location: rows + 1, length: recipes.count))
+        table.insertRows(at: itemRows as IndexSet, withRowType: "RecipeRowType")
+        
+        for i in rows..<table.numberOfRows {
+            let controller = table.rowController(at: i)
+            if let controller = controller as? HeaderRowController {
+                controller.image.setImageNamed(type.lowercased())
+                controller.label.setText(type)
+                
+            } else if let controller = controller as? RecipeRowController {
+                let recipe = recipes[i - rows - 1]
+                controller.titleLabel.setText(recipe.name)
+                controller.ingredientsLabel.setText("\(recipe.ingredients.count) ingredients")
+            }
         }
     }
     
